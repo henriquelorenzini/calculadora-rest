@@ -1,0 +1,18 @@
+sudo: false
+language: node_js
+node_js: "8"
+
+jobs:
+  include:
+    - stage: test
+      script: npm run test
+      script: skip
+    - stage: deploy
+      script: skip
+      deploy: &heroku
+        provider: heroku
+        app: calculadora-express-rest
+        api-key: $HEROKU_AUTH_TOKEN
+        on: master
+    - stage: test deploys
+      script: 'curl http://calculadora-express-rest.herokuapp.com'
