@@ -16,3 +16,9 @@ $ npm run start
 # Run tests
 $ npm run test
 ```
+
+## Funções
+
+### Somar
+
+`/sum/:valor1/:valor2`
