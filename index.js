@@ -2,8 +2,9 @@ const express = require('express');
 const { sum } = require('./controllers/calculator')
 
 const app = express();
+const PORT = process.env.PORT || 3000
 
-app.get('/sum/:value1/:value2', function (req, res) {
+app.get('/sum/:value1/:value2', (req, res) => {
   const val1 = parseFloat(req.params.value1)
   const val2 = parseFloat(req.params.value2)
 
@@ -12,6 +13,6 @@ app.get('/sum/:value1/:value2', function (req, res) {
   res.send({ result });
 });
 
-app.listen(3000, function () {
-  console.log('Calculadora rodando na porta 3000!');
+app.listen(PORT, () => {
+  console.log(`Calculadora rodando na porta ${PORT}!`);
 });
